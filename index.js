@@ -5,9 +5,25 @@ const app = express();
 app.set('view engine', 'ejs');
 
 //definindo as rotas
-app.get("/", (req,res)=>{
+app.get("/", (req,res)=>{ //fiz uma anotação na aula 25 sobre os parâmetros
+    var nome = "Wilson";
+    var lang = "JavaScript";
+    var exibirMsg = true;
+
+    var produtos = [
+        {nome: "Doritos", preco: 3.14},
+        {nome: "Fanta", preco: 5},
+        {nome: "Leite", preco: 1.45},
+    ]
     //res.send("Bem vindo ao meu site");
-    res.render("principal/perfil") //agora estou usando o EJS para desenhar meu html
+    res.render("index", {
+        nome: nome,
+        lang: lang,
+        empresa: "Nenhuma por enquanto",
+        inscritos: 80,
+        msg: exibirMsg,
+        produtos: produtos
+    }); //agora estou usando o EJS para desenhar meu html
 });
 
 //colocando a aplicação para rodar com o nodemon(no terminal coloquei nodemon index.js que é o nome do meu arquivo)
