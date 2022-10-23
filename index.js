@@ -3,6 +3,7 @@ const app = express();
 
 //estou dizendo para o Express usar o EJS com view engine. Na pasta views ficarão salvo todos os meus arquivos HTMl
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 //definindo as rotas
 app.get("/", (req,res)=>{ //fiz uma anotação na aula 25 sobre os parâmetros
